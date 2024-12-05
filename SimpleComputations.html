@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html>
+<body>
+
+<h1>Simple Computations</h1>
+
+<h2>Convert Fahrenheit to Celsius</h2>
+
+<p>
+    <label for="f">Input Fahrenheit</label>
+    <input id="f" name="f" type="number">
+    
+    <button onclick="compcel()"> Compute Celsius </button>
+</p>
+
+<p>
+    <label for="celsius" id="cellabel">The answer is:</label>  
+    <input id="celsius" name="celsius" type="number" readonly></input>
+</p>
+
+<h2>Convert Celsius to Fahrenheit</h2>
+
+<p>
+    <label for="c">Input Celsius</label>
+    <input id="c" name="c" type="number">
+    
+    <button onclick="compfah()"> Compute Fahrenheit </button>
+
+</p>
+
+<p>
+    <label for="fahrenheit" id="fahlabel">The answer is:</label>  
+    <input id="fahrenheit" name="fahrenheit" type="number" readonly></input>
+</p>
+
+<h2>Convert Meters to Feet</h2>
+
+<p>
+    <label for="m">Input Meters</label>
+    <input id="m" name="m" type="number">
+    
+    <button onclick="compfet()"> Compute Feet </button>
+
+</p>
+
+<p>
+    <label for="feet" id="fetlabel">The answer is:</label>  
+    <input id="feet" name="feet" type="number" readonly></input>
+</p>
+
+<h2>Convert Feet to Meters</h2>
+
+<p>
+    <label for="f">Input Feet</label>
+    <input id="f" name="f" type="number">
+    
+    <button onclick="compmet()"> Compute Meters </button>
+
+</p>
+
+<p>
+    <label for="meters" id="metlabel">The answer is:</label>  
+    <input id="meters" name="meters" type="number" readonly></input>
+</p>
+
+
+<script>
+    function compcel() //Fahrenheit to Celsius
+    {
+        var fahrenheit = document.getElementById("f").value*1;  
+
+        let celsius = (fahrenheit - 32) * 5 / 9;
+
+          document.getElementById("cellabel").innerHTML = 'The conversion of ' + fahrenheit + ' Fahrenheit into Celsius is:';
+          document.getElementById("celsius").value = celsius.toFixed(2);
+    }
+
+    function compfah() //Celsius to Fahrenheit
+    {
+        var celsius = document.getElementById("c").value*1;  
+
+        let fahrenheit = (celsius * 9/5) + 32;
+
+          document.getElementById("fahlabel").innerHTML = 'The conversion of ' + celsius + ' Celsius into Fahrenheit is:';
+          document.getElementById("fahrenheit").value = fahrenheit.toFixed(2);
+    }
+
+    function compfet() //Meters to Feet
+    {
+        var meters = document.getElementById("m").value*1;  
+
+        let feet = meters * 3.281;
+
+          document.getElementById("fetlabel").innerHTML = 'The conversion of ' + meters + ' meters into feet is:';
+          document.getElementById("feet").value = feet.toFixed(2);
+    }
+
+    function compmet() //Feet to Meters
+    {
+        var feet = document.getElementById("f").value*1;  
+
+        let meters = feet / 3.281;
+
+          document.getElementById("metlabel").innerHTML = 'The conversion of ' + feet + ' feet into meters is:';
+          document.getElementById("meters").value = meters.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

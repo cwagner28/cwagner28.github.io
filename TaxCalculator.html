@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+<body>
+
+<h1>Income Tax Calculator</h1>
+
+<p>
+    <label for="taxin">Input Taxable Income: </label>
+    <input id="taxin" name="taxin" type="number">
+
+    <button onclick="compintax()">Compute Income Tax</button>
+</p>
+
+<p>
+    <label for="intax">Your Income Tax is: </label>
+    <input id="intax" name="intax" type="number">
+</p>
+
+<script>
+    function compintax() {
+        var taxableincome = document.getElementById("taxin").value*1;
+        var incometax = 0;
+
+        if (taxableincome <= 250000) {
+            incometax = 0;
+        } else if (taxableincome <= 400000) {
+            incometax = 0.20 * (taxableincome - 250000);
+        } else if (taxableincome <= 800000) {
+            incometax = 30000 + 0.25 * (taxableincome - 400000);
+        } else if (taxableincome <= 2000000) {
+            incometax = 130000 + 0.30 * (taxableincome - 800000);
+        } else if (taxableincome <= 8000000) {
+            incometax = 490000 + 0.32 * (taxableincome - 2000000);
+        } else {
+            incometax = 2410000 + 0.35 * (taxableincome - 8000000);
+        }
+
+        document.getElementById("intax").value = incometax;
+
+    }
+
+</script>
+</body>
+</html>

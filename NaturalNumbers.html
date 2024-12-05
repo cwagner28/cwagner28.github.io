@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html>
+<body>
+
+<h1> Nth Factorial, Sum of N Numbers, and Average of N Numbers</h1>
+
+<br>
+
+<p>
+<label for="n">Input a number: </label>
+<input id="n" name ="n" type="number"></input>
+<button onclick="showNumbers()">Show Numbers</button>
+</p>
+
+<h3 id="nfacttitle"></h3>
+<p id="nfact"></p>
+
+<h3 id="nsumtitle"></h3>
+<p id="nsum"></p>
+
+<h3 id="navgtitle"></h3>
+<p id="navg"></p>
+
+<script>
+    function showNumbers() {
+        const n = parseInt(document.getElementById("n").value);
+
+        let i = 1;
+        let nfact = 1;
+        while (i <= n) {
+            nfact *= i;
+            i++;
+        }
+
+        i = 1;
+        let nsum = 0
+        do {
+            nsum += i;
+            i++;
+        } while (i <= n);
+
+        let navg = 0
+        for (i=1; i <= n; i++) {
+            navg += i;
+        }
+        navg /= n;
+
+        document.getElementById("nfact").textContent = nfact;
+        document.getElementById("nfacttitle").innerHTML="The "+n+"th factorial number is:";
+        document.getElementById("nsum").textContent = nsum;
+        document.getElementById("nsumtitle").innerHTML="The sum of the first "+n+" numbers is:";
+        document.getElementById("navg").textContent = navg;
+        document.getElementById("navgtitle").innerHTML="The average of the first "+n+" numbers is:";
+
+
+    }
+
+</script>
+</body>
+</html>
+
