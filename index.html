@@ -5,6 +5,12 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            background-image: url('Images/koifish.gif'); /* Replace with your image URL */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
+            background-position: center; /* Centers the image */
+            color: #d99880; /* Sets text color for contrast *
         }
         .button-container {
             display: flex;
@@ -18,10 +24,10 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for separation */
         }
         .home-indicator {
-            margin-right: 10px; /* Adds spacing between HOME text and buttons */
+            margin-right: 40; /* Adds spacing between HOME text and buttons */
             font-size: 18px;
             font-weight: bold;
-            color: #333; /* Dark gray for visibility */
+            color: #f1efef; /* White for visibility */
         }
         button {
             padding: 10px 20px;
@@ -30,14 +36,28 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            background-color: #007BFF;
+            background-color: #936651;
             color: white;
         }
         button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #294842; /* Darker on hover */
         }
-        h1, h2 {
+        .center-content {
+            position: fixed; /* Keeps the content in the center during scrolling */
+            top: 50%; /* Positions the top edge at the vertical center */
+            left: 50%; /* Positions the left edge at the horizontal center */
+            transform: translate(-50%, -50%); /* Adjusts for the element's size to truly center it */
+            text-align: center; /* Centers the text */}
+        h1 {
+            font-size: 60px;
+            font-family: 'Trebuchet MS';
             margin-top: 100px; /* Space to account for the fixed button bar */
+            text-align: center; /* Centers the title */
+        }
+        h2 {
+            font-size: 40px;
+            font-family: Brush Script MT;
+            margin-top: 20px; /* Space to account for the fixed button bar */
             text-align: center; /* Centers the title */
         }
     </style>
@@ -46,16 +66,17 @@
 
 <div class="button-container">
     <!-- HOME text and buttons -->
-    <span class="home-indicator">HOME</span>
+    <span class="home-indicator">Home</span>
     <button onclick="location.href='SimpleComputations.html'">Simple Computations</button>
     <button onclick="location.href='TaxCalculator.html'">Income Tax</button>
     <button onclick="location.href='NaturalNumbers.html'">Print Natural Numbers</button>
     <button onclick="location.href='SimplePayroll.html'">Simple Payroll</button>
 </div>
 
-<!-- Title below the buttons -->
-<h1>CS 1130 - Introduction to Computing!</h1>
-<h2>by Christel Wagner<3</h2>
+<div class="center-content">
+    <h1>CS 1130 - ITC FINAL PROJECT</h1>
+    <h2>by Christel Wagner <3</h2>
+</div>
 
 </body>
 </html>

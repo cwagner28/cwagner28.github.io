@@ -1,1 +1,185 @@
 <!doctype html>
+
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center; /* Vertically aligns buttons and text */
+            background-color: #f4f4f4; /* Adds a light background for the button bar */
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for separation */
+        }
+
+        .home-indicator {
+            margin-right: 20px; /* Adds spacing between HOME text and buttons */
+            font-size: 18px;
+            font-weight: bold;
+            color: #333; /* Dark gray for visibility */
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        main {
+            margin-top: 80px; /* Space to account for the fixed button bar */
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        input, button {
+            margin: 5px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 90%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 8px;
+        }
+
+        .form-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="button-container">
+    <!-- HOME text and buttons -->
+    <span class="home-indicator">HOME</span>
+    <button onclick="location.href='SimpleComputations.html'">Simple Computations</button>
+    <button onclick="location.href='TaxCalculator.html'">Income Tax</button>
+    <button onclick="location.href='NaturalNumbers.html'">Print Natural Numbers</button>
+    <button onclick="location.href='SimplePayroll.html'">Simple Payroll</button>
+</div>
+
+<main>
+    <h1>Payroll Management System</h1>
+
+    <div class="form-container">
+        <input id="employeeName" type="text" placeholder="Employee Name">
+        <input id="daysWorked" type="number" placeholder="Days Worked">
+        <input id="dailyRate" type="number" placeholder="Daily Rate">
+        <input id="deduction" type="number" placeholder="Deduction Amount">
+        <button onclick="addEmployee()">Add Employee</button>
+        <button onclick="deleteEmployee()">Delete Employee</button>
+    </div>
+
+    <table id="payrollTable">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Employee Name</th>
+                <th>Days Worked</th>
+                <th>Daily Rate</th>
+                <th>Gross Pay</th>
+                <th>Deduction Amount</th>
+                <th>Net Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</main>
+
+<script>
+    let employeeList = [];
+
+    function addEmployee() {
+        const name = document.getElementById("employeeName").value;
+        const daysWorked = parseFloat(document.getElementById("daysWorked").value);
+        const dailyRate = parseFloat(document.getElementById("dailyRate").value);
+        const deduction = parseFloat(document.getElementById("deduction").value);
+
+        if (!name || isNaN(daysWorked) || isNaN(dailyRate) || isNaN(deduction)) {
+            alert("Please fill all fields correctly.");
+            return;
+        }
+
+        const grossPay = daysWorked * dailyRate;
+        const netPay = grossPay - deduction;
+
+        employeeList.push({ name, daysWorked, dailyRate, grossPay, deduction, netPay });
+        updateTable();
+
+        document.getElementById("employeeName").value = "";
+        document.getElementById("daysWorked").value = "";
+        document.getElementById("dailyRate").value = "";
+        document.getElementById("deduction").value = "";
+    }
+
+    function deleteEmployee() {
+        const lineNumber = parseInt(prompt("Enter the line number to delete:"));
+
+        if (isNaN(lineNumber) || lineNumber < 1 || lineNumber > employeeList.length) {
+            alert("Invalid line number.");
+            return;
+        }
+
+        employeeList.splice(lineNumber - 1, 1);
+        updateTable();
+    }
+
+    function updateTable() {
+        const tableBody = document.getElementById("payrollTable").querySelector("tbody");
+        tableBody.innerHTML = "";
+
+        employeeList.forEach((employee, index) => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${employee.name}</td>
+                <td>${employee.daysWorked}</td>
+                <td>${employee.dailyRate.toFixed(2)}</td>
+                <td>${employee.grossPay.toFixed(2)}</td>
+                <td>${employee.deduction.toFixed(2)}</td>
+                <td>${employee.netPay.toFixed(2)}</td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+    }
+</script>
+
+</body>
+</html>
+

@@ -1,109 +1,151 @@
 <!doctype html>
 
 <html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('Images/koifish.gif'); /* Replace with your image URL */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
+            background-position: center; /* Centers the image */
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center; /* Vertically aligns buttons and text */
+            background-color: #f4f4f4; /* Adds a light background for the button bar */
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for separation */
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: rgb(255, 255, 255);
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        main {
+            margin-top: 80px; /* Space to account for the fixed button bar */
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        input, button {
+            margin: 5px;
+        }
+    </style>
+</head>
 <body>
 
-<h1>Simple Computations</h1>
+<div class="button-container">
+    <button onclick="location.href='index.html'"> Home </button>
+    <button onclick="location.href='TaxCalculator.html'">Income Tax</button>
+    <button onclick="location.href='NaturalNumbers.html'">Print Natural Numbers</button>
+    <button onclick="location.href='SimplePayroll.html'">Simple Payroll</button>
+</div>
 
-<h2>Convert Fahrenheit to Celsius</h2>
+<main>
+    <h1>Simple Computations</h1>
 
-<p>
-    <label for="f">Input Fahrenheit</label>
-    <input id="f" name="f" type="number">
-    
-    <button onclick="compcel()"> Compute Celsius </button>
-</p>
+    <h2>Convert Fahrenheit to Celsius</h2>
+    <p>
+        <label for="f">Input Fahrenheit</label>
+        <input id="f" name="f" type="number">
+        <button onclick="compcel()"> Compute Celsius </button>
+    </p>
+    <p>
+        <label for="celsius" id="cellabel">The answer is:</label>  
+        <input id="celsius" name="celsius" type="number" readonly>
+    </p>
 
-<p>
-    <label for="celsius" id="cellabel">The answer is:</label>  
-    <input id="celsius" name="celsius" type="number" readonly></input>
-</p>
+    <h2>Convert Celsius to Fahrenheit</h2>
+    <p>
+        <label for="c">Input Celsius</label>
+        <input id="c" name="c" type="number">
+        <button onclick="compfah()"> Compute Fahrenheit </button>
+    </p>
+    <p>
+        <label for="fahrenheit" id="fahlabel">The answer is:</label>  
+        <input id="fahrenheit" name="fahrenheit" type="number" readonly>
+    </p>
 
-<h2>Convert Celsius to Fahrenheit</h2>
+    <h2>Convert Meters to Feet</h2>
+    <p>
+        <label for="m">Input Meters</label>
+        <input id="m" name="m" type="number">
+        <button onclick="compfet()"> Compute Feet </button>
+    </p>
+    <p>
+        <label for="feet" id="fetlabel">The answer is:</label>  
+        <input id="feet" name="feet" type="number" readonly>
+    </p>
 
-<p>
-    <label for="c">Input Celsius</label>
-    <input id="c" name="c" type="number">
-    
-    <button onclick="compfah()"> Compute Fahrenheit </button>
-
-</p>
-
-<p>
-    <label for="fahrenheit" id="fahlabel">The answer is:</label>  
-    <input id="fahrenheit" name="fahrenheit" type="number" readonly></input>
-</p>
-
-<h2>Convert Meters to Feet</h2>
-
-<p>
-    <label for="m">Input Meters</label>
-    <input id="m" name="m" type="number">
-    
-    <button onclick="compfet()"> Compute Feet </button>
-
-</p>
-
-<p>
-    <label for="feet" id="fetlabel">The answer is:</label>  
-    <input id="feet" name="feet" type="number" readonly></input>
-</p>
-
-<h2>Convert Feet to Meters</h2>
-
-<p>
-    <label for="f">Input Feet</label>
-    <input id="f" name="f" type="number">
-    
-    <button onclick="compmet()"> Compute Meters </button>
-
-</p>
-
-<p>
-    <label for="meters" id="metlabel">The answer is:</label>  
-    <input id="meters" name="meters" type="number" readonly></input>
-</p>
-
+    <h2>Convert Feet to Meters</h2>
+    <p>
+        <label for="f">Input Feet</label>
+        <input id="f" name="f" type="number">
+        <button onclick="compmet()"> Compute Meters </button>
+    </p>
+    <p>
+        <label for="meters" id="metlabel">The answer is:</label>  
+        <input id="meters" name="meters" type="number" readonly>
+    </p>
+</main>
 
 <script>
     function compcel() //Fahrenheit to Celsius
     {
         var fahrenheit = document.getElementById("f").value*1;  
-
         let celsius = (fahrenheit - 32) * 5 / 9;
-
-          document.getElementById("cellabel").innerHTML = 'The conversion of ' + fahrenheit + ' Fahrenheit into Celsius is:';
-          document.getElementById("celsius").value = celsius.toFixed(2);
+        document.getElementById("cellabel").innerHTML = 'The conversion of ' + fahrenheit + ' Fahrenheit into Celsius is:';
+        document.getElementById("celsius").value = celsius.toFixed(2);
     }
 
     function compfah() //Celsius to Fahrenheit
     {
         var celsius = document.getElementById("c").value*1;  
-
         let fahrenheit = (celsius * 9/5) + 32;
-
-          document.getElementById("fahlabel").innerHTML = 'The conversion of ' + celsius + ' Celsius into Fahrenheit is:';
-          document.getElementById("fahrenheit").value = fahrenheit.toFixed(2);
+        document.getElementById("fahlabel").innerHTML = 'The conversion of ' + celsius + ' Celsius into Fahrenheit is:';
+        document.getElementById("fahrenheit").value = fahrenheit.toFixed(2);
     }
 
     function compfet() //Meters to Feet
     {
         var meters = document.getElementById("m").value*1;  
-
         let feet = meters * 3.281;
-
-          document.getElementById("fetlabel").innerHTML = 'The conversion of ' + meters + ' meters into feet is:';
-          document.getElementById("feet").value = feet.toFixed(2);
+        document.getElementById("fetlabel").innerHTML = 'The conversion of ' + meters + ' meters into feet is:';
+        document.getElementById("feet").value = feet.toFixed(2);
     }
 
     function compmet() //Feet to Meters
     {
         var feet = document.getElementById("f").value*1;  
-
         let meters = feet / 3.281;
-
-          document.getElementById("metlabel").innerHTML = 'The conversion of ' + feet + ' feet into meters is:';
-          document.getElementById("meters").value = meters.toFixed(2);
+        document.getElementById("metlabel").innerHTML = 'The conversion of ' + feet + ' feet into meters is:';
+        document.getElementById("meters").value = meters.toFixed(2);
     }
 </script>
 
