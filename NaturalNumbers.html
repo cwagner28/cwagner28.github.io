@@ -1,11 +1,87 @@
 <!doctype html>
 
 <html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            font-family: Trebuchet MS;
+            background-image: url('Images/black bg.jpg'); /* Replace with your image URL */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
+            background-position: center; /* Centers the image */
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center; /* Vertically aligns buttons and text */
+            background-color: #000000; /* Adds a light background for the button bar */
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; /* Full width */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for separation */
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #bf8159;
+            color: #ffffff;
+        }
+
+        button:hover {
+            background-color: #0f5c44; /* Darker blue on hover */
+        }
+
+        main {
+            margin-top: 80px; /* Space to account for the fixed button bar */
+            padding: 20px;
+        }
+
+        h1, p {
+            text-align: center;
+            color: #ffffff;
+
+        }
+        h3 {
+            font-size: 16px;
+            text-align: center;
+            color: #bf8159;
+        }
+
+        input, button {
+            margin: 5px;
+        }
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
 
-<h1> Nth Factorial, Sum of N Numbers, and Average of N Numbers</h1>
+<div class="button-container">
+    <button onclick="location.href='index.html'"> Home </button>
+    <button onclick="location.href='SimpleComputations.html'">Simple Computations</button>
+    <button onclick="location.href='TaxCalculator.html'">Tax Calculator</button>
+    <button onclick="location.href='SimplePayroll.html'">Simple Payroll</button>
+</div>
 
-<br>
+<main>
+    <div class="center-content">
+    <h1> Natural Numbers </h1>
+<p> Nth Factorial, Sum of N Numbers, and Average of N Numbers</p>
+
 
 <p>
 <label for="n">Input a number: </label>
