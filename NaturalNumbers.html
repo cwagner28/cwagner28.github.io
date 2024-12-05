@@ -24,6 +24,12 @@
             width: 100%; /* Full width */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for separation */
         }
+        .page-indicator {
+            margin-right: 10px; /* Adds spacing between HOME text and buttons */
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff; }
+            
 
         button {
             padding: 10px 20px;
@@ -71,6 +77,7 @@
 <body>
 
 <div class="button-container">
+    <span class="page-indicator">Natural Numbers</span>
     <button onclick="location.href='index.html'"> Home </button>
     <button onclick="location.href='SimpleComputations.html'">Simple Computations</button>
     <button onclick="location.href='TaxCalculator.html'">Tax Calculator</button>

@@ -5,13 +5,18 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            font-family: Trebuchet MS;
+            background-image: url('Images/black bg.jpg'); /* Replace with your image URL */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
+            background-position: center; /* Centers the image */
         }
 
         .button-container {
             display: flex;
             align-items: center; /* Vertically aligns buttons and text */
-            background-color: #f4f4f4; /* Adds a light background for the button bar */
+            background-color: #000000; /* Adds a light background for the button bar */
             padding: 10px;
             position: fixed;
             top: 0;
@@ -20,11 +25,11 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for separation */
         }
 
-        .home-indicator {
-            margin-right: 20px; /* Adds spacing between HOME text and buttons */
+        .page-indicator {
+            margin-right: 10px; /* Adds spacing between HOME text and buttons */
             font-size: 18px;
             font-weight: bold;
-            color: #333; /* Dark gray for visibility */
+            color: #ffffff; 
         }
 
         button {
@@ -34,12 +39,12 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            background-color: #007BFF;
+            background-color: #bf8159;
             color: white;
         }
 
         button:hover {
-            background-color: #0056b3; /* Darker blue on hover */
+            background-color: #0f5c44; /* Darker blue on hover */
         }
 
         main {
@@ -49,10 +54,12 @@
 
         h1, h2 {
             text-align: center;
+            color: #ffffff; 
         }
 
         p {
             text-align: center;
+            color: #ffffff; 
         }
 
         input, button {
@@ -66,7 +73,8 @@
         }
 
         table, th, td {
-            border: 1px solid black;
+            border: 1px solid rgb(255, 255, 255);
+            color: #ffffff; 
             text-align: center;
         }
 
@@ -83,12 +91,12 @@
 <body>
 
 <div class="button-container">
-    <!-- HOME text and buttons -->
-    <span class="home-indicator">HOME</span>
+    <span class="page-indicator">Simple Payroll</span>
+    <button onclick="location.href='index.html'">Home</button>
     <button onclick="location.href='SimpleComputations.html'">Simple Computations</button>
     <button onclick="location.href='TaxCalculator.html'">Income Tax</button>
     <button onclick="location.href='NaturalNumbers.html'">Print Natural Numbers</button>
-    <button onclick="location.href='SimplePayroll.html'">Simple Payroll</button>
+    
 </div>
 
 <main>
